@@ -1,0 +1,8 @@
+node_modules
+dist
+.idea
+build
+repositories/
+output/
+revisions-report.json
+sloc-report.json
