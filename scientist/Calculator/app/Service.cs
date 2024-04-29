@@ -27,12 +27,11 @@ public class Service
 
     private static Questionnaire CreateQuestionnaire(int durationInYears, double interest, decimal principal)
     {
-        var answers = new Questionnaire()
+        return new Questionnaire
         {
             DurationInYears = durationInYears,
             Interest = interest,
             Principal = principal
         };
-        return answers;
     }
 }

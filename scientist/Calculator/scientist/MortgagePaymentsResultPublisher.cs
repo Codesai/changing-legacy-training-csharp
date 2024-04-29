@@ -3,8 +3,15 @@ using GitHub;
 
 namespace Calculator.scientist;
 
-public class ScientistResultPublisher : IResultPublisher
+public class MortgagePaymentsResultPublisher : IResultPublisher
 {
+    private readonly string _resultFilePath;
+
+    public MortgagePaymentsResultPublisher(string resultFilePath)
+    {
+        _resultFilePath = resultFilePath;
+    }
+
     public Task Publish<T, TClean>(Result<T, TClean> result)
     {
         var report = $"Results for experiment '{result.ExperimentName}' on {DateTime.Now}\n";
@@ -16,9 +23,8 @@ public class ScientistResultPublisher : IResultPublisher
             report +=$"Candidate value: {ConvertToMortgageData(result)}\n";
             report +=$"Candidate duration: {observation.Duration}\n";
         }
-
         report += "== End experiment ==\n\n";
-        return File.AppendAllTextAsync("scientist-result.txt", report);
+        return File.AppendAllTextAsync(_resultFilePath, report);
     }
 
     private string ConvertToMortgageData<T, TClean>(Result<T, TClean> result)

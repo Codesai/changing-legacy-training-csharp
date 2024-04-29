@@ -6,6 +6,7 @@ public static class Calculations
 {
     public static List<MortgagePayment> MortgageCalculations(Questionnaire answer)
     {
+        Thread.Sleep(500); 
         List<MortgagePayment> output = new();
 
         var durationInMonths = CalculateTotalMonths(answer.DurationInYears);
