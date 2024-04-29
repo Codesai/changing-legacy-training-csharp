@@ -9,9 +9,9 @@ Then in rootPath variable of gulp file, put the name of the project folder to an
 
 ## Hotspot analysis
 
-`npm run hotspot`
+`npm run hotspot -- --dateFrom=xxxx-xx-xx`
 
 ## Knowledge map analysis
 
-`npm run knowledge-map`
+`npm run knowledge-map -- --dateFrom=xxxx-xx-xx`
 

@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "gulp webserver",
-    "hotspot": "gulp hotspot-analysis --dateFrom=2012-06-01",
-    "knowledge-map": "gulp knowledge-map-analysis --dateFrom=2013-06-01",
+    "hotspot": "gulp hotspot-analysis",
+    "knowledge-map": "gulp knowledge-map-analysis",
     "list-analysis-tasks": "gulp list-analysis-tasks"
   },
   "dependencies": {

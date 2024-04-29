@@ -5,9 +5,3 @@ require('code-forensics').configure(
         }
     }
 );
-
-function defaultTask(cb) {
-    cb();
-}
-
-exports.default = defaultTask;
