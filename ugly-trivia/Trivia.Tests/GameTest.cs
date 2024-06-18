@@ -6,8 +6,8 @@ namespace Trivia.Tests;
 public class GameTest
 {
     [Test]
-    public void Should_Not_Pass()
+    public void canary_test()
     {
-        Assert.That(false, Is.True);
+        Assert.Pass();
     }
 }
