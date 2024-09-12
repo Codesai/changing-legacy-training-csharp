@@ -21,5 +21,5 @@ Task
 The given code collects the necessary user confirmations
 during a purchase in our online shop. The main logic is in `Checkout`.
 
-* Break the dependencies you need to bring `Checkout` under test, so that you can fix the existing test, then write more tests if oyu have time.
+* Break the dependencies you need to bring `Checkout` under test, so that you can fix the existing test, then write more tests if you have time.
 * There is an existing `CheckoutTest` with a first test case which might or might not work.
