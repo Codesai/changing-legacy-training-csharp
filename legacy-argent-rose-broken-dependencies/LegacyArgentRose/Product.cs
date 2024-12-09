@@ -25,7 +25,15 @@ public class Product
         {
             decrement *= QualityFactorByExpiration;
         }
-        _quality = Math.Max(MinimumQuality, _quality - decrement);
+
+        if (_quality - decrement < MinimumQuality)
+        {
+            _quality = MinimumQuality;
+        }
+        else
+        {
+            _quality -= decrement;
+        }
     }
 
     public void IncreaseQualityBy(int increment)
@@ -34,7 +42,15 @@ public class Product
         {
             increment *= QualityFactorByExpiration;
         }
-        _quality = Math.Min(MaximumQuality, _quality + increment);
+
+        if (_quality + increment > MaximumQuality)
+        {
+            _quality = MaximumQuality;
+        }
+        else
+        {
+            _quality += increment;
+        }
     }
 
     public void DropQualityToMinimum()
