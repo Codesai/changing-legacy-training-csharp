@@ -1,7 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 
 namespace ProblematicSearcher {
-    public static class PersonsRepository {
+    public class PersonsRepository {
         private const string DatabaseName = "myshop";
         private const string User = "store";
         private const string Pass = "123456";
