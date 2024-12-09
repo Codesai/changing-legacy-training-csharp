@@ -1,5 +1,3 @@
-using System.Diagnostics;
-using NSubstitute;
 using NUnit.Framework;
 
 namespace KataTirePressureVariation.Test
@@ -14,7 +12,7 @@ namespace KataTirePressureVariation.Test
         
 
         [Test]
-        public void alarm_activates_when_sampled_pressure_is_too_low()
+        public void Alarm_Activates_When_Sampled_Pressure_Is_Too_Low()
         {
             _alarm = AnAlarmThatSamples(TooLowPressure);
 
@@ -26,7 +24,7 @@ namespace KataTirePressureVariation.Test
         [Test]
         [TestCase(LowestSafePressure)]
         [TestCase(HighestSafePressure)]
-        public void alarm_does_not_activate_when_sampled_pressure_is_safe(double sampledPressure)
+        public void Alarm_Does_Not_Activate_When_Sampled_Pressure_Is_Safe(double sampledPressure)
         {
             _alarm = AnAlarmThatSamples(sampledPressure);
 
@@ -36,7 +34,7 @@ namespace KataTirePressureVariation.Test
         }
 
         [Test]
-        public void alarm_activates_when_sampled_pressure_is_too_high()
+        public void Alarm_Activates_When_Sampled_Pressure_Is_Too_High()
         {
             _alarm = AnAlarmThatSamples(TooHighPressure);
 
@@ -46,7 +44,7 @@ namespace KataTirePressureVariation.Test
         }
         
         [Test]
-        public void activated_alarm_deactivates_when_sampled_pressure_is_safe()
+        public void Activated_Alarm_Deactivates_When_Sampled_Pressure_Is_Safe()
         {
             _alarm = AnAlarmThatSamples(TooHighPressure, LowestSafePressure);
             _alarm.Check();

@@ -22,14 +22,14 @@
         <PackageReference Include="NUnit3TestAdapter" Version="4.5.0"/>
         <PackageReference Include="ReportGenerator" Version="5.2.4"/>
     </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\KataTirePressureVariation\KataTirePressureVariation.csproj" />
+    </ItemGroup>
     
     <Target Name="Coverlet">
         <Exec Command="dotnet test /p:CollectCoverage=true /p:CoverletOutput=coverage/data/coverage /p:CoverletOutputFormat=cobertura"/>
         <Exec Command="dotnet reportgenerator -reports:coverage/data/coverage.cobertura.xml -targetdir:coverage/report"/>
     </Target>
-
-    <ItemGroup>
-      <ProjectReference Include="..\KataTirePressureVariation\KataTirePressureVariation.csproj" />
-    </ItemGroup>
 
 </Project>
