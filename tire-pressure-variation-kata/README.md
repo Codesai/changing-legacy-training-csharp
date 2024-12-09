@@ -1,10 +1,20 @@
 # Tire Pressure Monitoring System Variation
 
 ## Goal
-Be able to test `Alarm`'s `check` function without changing the method signature.
+Killing all surviving mutants.
 
 ## Tools
-[NSubstitute](http://nsubstitute.github.io/)
+### Install dependencies and tools
+
+`dotnet restore`
+
+### Coverage
+
+`dotnet msbuild -target:Coverlet`
+
+### Mutation testing
+
+`dotnet stryker --open-report`
 
 ## References
 

@@ -7,35 +7,44 @@ namespace KataTirePressureVariation
         private const double LowPressureThreshold = 17;
         private const double HighPressureThreshold = 21;
 
-        private readonly Sensor sensor = new Sensor();
-
-        private bool alarmOn = false;
+        private readonly Sensor _sensor = new Sensor();
+        private bool _alarmOn = false;
 
         public void Check()
         {
-            double psiPressureValue = sensor.PopNextPressurePsiValue();
+            var psiPressureValue = SampleValue();
 
             if (psiPressureValue < LowPressureThreshold || HighPressureThreshold < psiPressureValue)
             {
                 if (!IsAlarmOn())
                 {
-                    alarmOn = true;
-                    Console.WriteLine("Alarm activated!");
+                    _alarmOn = true;
+                    Display("Alarm activated!");
                 }
             }
             else
             {
                 if (IsAlarmOn())
                 {
-                    alarmOn = false;
-                    Console.WriteLine("Alarm deactivated!");
+                    _alarmOn = false;
+                    Display("Alarm deactivated!");
                 }
             }
         }
 
+        protected virtual double SampleValue()
+        {
+            return _sensor.PopNextPressurePsiValue();
+        }
+
+        protected virtual void Display(string message)
+        {
+            Console.WriteLine(message);
+        }
+
         private bool IsAlarmOn()
         {
-            return alarmOn;
+            return _alarmOn;
         }
     }
 }
