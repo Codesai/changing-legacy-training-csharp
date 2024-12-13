@@ -1,9 +1,8 @@
-### Kata Objective
+## Kata Objective
 
 To practice how to add a feature to legacy code.
 
 ## An ultra urgent feature arrives 
-======================================
 
 The `WavExtractor32v` class needs to be updated to exclude files containing a keyword.
 - Main receives multiples args
@@ -17,7 +16,7 @@ The `WavExtractor32v` class needs to be updated to exclude files containing a ke
 - You don’t have time to test/refactor `WavExtractor32v` or `Main`.
 
 
-#  Useful commands
+##  Useful commands
 
 - Run this command to install stryker (only the first time):
 
