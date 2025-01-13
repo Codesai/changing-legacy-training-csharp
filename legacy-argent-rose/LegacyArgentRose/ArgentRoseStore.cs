@@ -38,42 +38,27 @@ public class ArgentRoseStore
     {
         if (product.IsLanzaroteWine())
         {
-            UpdateLanzaroteWineQuality(product);
+            product.IncreaseQualityBy(2);
         }
         else if (product.IsTheatrePasses())
         {
-            UpdateTheatrePassesQuality(product);
+            if (product.SellIn < 0)
+            {
+                product.DropQualityToMinimum();
+            }
+            else if (product.SellIn < 5)
+            {
+                product.IncreaseQualityBy(3);
+            }
+            else
+            {
+                product.IncreaseQualityBy(1);
+            }
         }
         else
         {
-            UpdateRegularProductQuality(product);
+            product.DecreaseQualityBy(2);
         }
-    }
-
-    private void UpdateRegularProductQuality(Product product)
-    {
-        product.DecreaseQualityBy(2);
-    }
-
-    private void UpdateTheatrePassesQuality(Product product)
-    {
-        if (product.IsExpired())
-        {
-            product.DropQualityToMinimum();
-        }
-        else if (product.SellInIsLessThan(5))
-        {
-            product.IncreaseQualityBy(3);
-        }
-        else
-        {
-            product.IncreaseQualityBy(1);
-        }
-    }
-
-    private void UpdateLanzaroteWineQuality(Product product)
-    {
-        product.IncreaseQualityBy(2);
     }
 
     private void GetInventory()

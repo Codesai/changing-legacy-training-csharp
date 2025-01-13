@@ -4,10 +4,8 @@ public class Product
 {
     private const int MinimumQuality = 0;
     private const int MaximumQuality = 50;
-    private const int SellInLastDay = 0;
     private const int QualityFactorByExpiration = 2;
-
-
+    
     private readonly string _description;
     private int _sellIn;
     private int _quality;
@@ -21,7 +19,7 @@ public class Product
 
     public void DecreaseQualityBy(int decrement)
     {
-        if (IsExpired())
+        if (_sellIn < 0)
         {
             decrement *= QualityFactorByExpiration;
         }
@@ -30,7 +28,7 @@ public class Product
 
     public void IncreaseQualityBy(int increment)
     {
-        if (IsExpired())
+        if (_sellIn < 0)
         {
             increment *= QualityFactorByExpiration;
         }
@@ -45,16 +43,6 @@ public class Product
     public void DecreaseSellIn()
     {
         _sellIn -= 1;
-    }
-
-    public bool IsExpired()
-    {
-        return _sellIn < SellInLastDay;
-    }
-
-    public bool SellInIsLessThan(int days)
-    {
-        return _sellIn < days;
     }
 
     public bool IsLanzaroteWine()
