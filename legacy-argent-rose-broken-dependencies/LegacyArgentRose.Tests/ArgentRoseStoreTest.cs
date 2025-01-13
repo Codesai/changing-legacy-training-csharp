@@ -1,5 +1,4 @@
 using NUnit.Framework;
-using static ArgentRose.Tests.ArgentRoseStoreForTesting;
 
 namespace ArgentRose.Tests;
 
