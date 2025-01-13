@@ -4,7 +4,6 @@ public class Product
 {
     private const int MinimumQuality = 0;
     private const int MaximumQuality = 50;
-    private const int QualityFactorByExpiration = 2;
     
     private readonly string _description;
     private int _sellIn;
@@ -19,20 +18,40 @@ public class Product
 
     public void DecreaseQualityBy(int decrement)
     {
-        if (_sellIn < 0)
+        for (var i = 0; i < decrement; i++)
         {
-            decrement *= QualityFactorByExpiration;
+            if (_quality > MinimumQuality)
+            {
+                _quality -= 1;
+            }
+            
+            if (_sellIn < 0)
+            {
+                if (_quality > MinimumQuality)
+                {
+                    _quality -= 1;
+                }
+            }
         }
-        _quality = Math.Max(MinimumQuality, _quality - decrement);
     }
 
     public void IncreaseQualityBy(int increment)
     {
-        if (_sellIn < 0)
+        for (var i = 0; i < increment; i++)
         {
-            increment *= QualityFactorByExpiration;
+            if (_quality < MaximumQuality)
+            {
+                _quality += 1;   
+            }
+            
+            if (_sellIn < 0)
+            {
+                if (_quality < MaximumQuality)
+                {
+                    _quality += 1;   
+                }
+            }
         }
-        _quality = Math.Min(MaximumQuality, _quality + increment);
     }
 
     public void DropQualityToMinimum()
