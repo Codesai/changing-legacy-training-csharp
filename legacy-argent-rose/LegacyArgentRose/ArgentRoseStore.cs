@@ -33,14 +33,10 @@ public class ArgentRoseStore
         product.DecreaseSellIn();
         UpdateQuality(product);
     }
-
+  
     private void UpdateQuality(Product product)
     {
-        if (product.IsLanzaroteWine())
-        {
-            product.IncreaseQualityBy(2);
-        }
-        else if (product.IsTheatrePasses())
+        if (product.IsTheatrePasses())
         {
             if (product.SellIn < 0)
             {
@@ -54,6 +50,10 @@ public class ArgentRoseStore
             {
                 product.IncreaseQualityBy(1);
             }
+        }
+        else if (product.IsLanzaroteWine())
+        {
+            product.IncreaseQualityBy(2);
         }
         else
         {
