@@ -36,11 +36,7 @@ public class ArgentRoseStore
 
     private void UpdateQuality(Product product)
     {
-        if (product.IsLanzaroteWine())
-        {
-            product.IncreaseQualityBy(2);
-        }
-        else if (product.IsTheatrePasses())
+        if (product.IsTheatrePasses())
         {
             if (product.SellIn < 0)
             {
@@ -54,6 +50,10 @@ public class ArgentRoseStore
             {
                 product.IncreaseQualityBy(1);
             }
+        }
+        else if (product.IsLanzaroteWine())
+        {
+            product.IncreaseQualityBy(2);
         }
         else
         {
@@ -69,7 +69,7 @@ public class ArgentRoseStore
     protected virtual List<Product> GetInventoryFromDb()
     {
         var products = new List<Product>();
-        
+
         var connectionString = GetConnectionString();
 
         using (var connection = new SqlConnection(connectionString))
