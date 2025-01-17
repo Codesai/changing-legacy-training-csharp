@@ -13,7 +13,7 @@ Changing code without test is risky, so we want to
 
 * Only change as little code as possible.
 * Rely on automated Refactoring tools as much as possible.
-* You must not change the public API of the class.
+* You must not change the public API of the class (you are allowed to change the constructor if you need it).
 
 Task
 ----
