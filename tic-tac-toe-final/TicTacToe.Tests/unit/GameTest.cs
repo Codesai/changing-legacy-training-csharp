@@ -38,11 +38,11 @@ public class GameTests
         _game.Start();
         
         ExpectInitialDisplay();
-        ExpectPlayerTurn(1, _gameDtoBuilder.AddingFieldToX(Field.One).Build());
-        ExpectPlayerTurn(2, _gameDtoBuilder.AddingFieldToO(Field.Four).Build());
-        ExpectPlayerTurn(3, _gameDtoBuilder.AddingFieldToX(Field.Two).Build());
-        ExpectPlayerTurn(4, _gameDtoBuilder.AddingFieldToO(Field.Five).Build());
-        ExpectPlayerTurn(5, _gameDtoBuilder.AddingFieldToX(Field.Three).WinningPlayerX().Build());
+        ExpectPlayerTurn(1, AddingFieldToX(Field.One).Build());
+        ExpectPlayerTurn(2, AddingFieldToO(Field.Four).Build());
+        ExpectPlayerTurn(3, AddingFieldToX(Field.Two).Build());
+        ExpectPlayerTurn(4, AddingFieldToO(Field.Five).Build());
+        ExpectPlayerTurn(5, AddingFieldToX(Field.Three).WinningPlayerX().Build());
     }
 
     [Test]
@@ -54,12 +54,12 @@ public class GameTests
         _game.Start();
         
         ExpectInitialDisplay();
-        ExpectPlayerTurn(1, _gameDtoBuilder.AddingFieldToX(Field.Four).Build());
-        ExpectPlayerTurn(2, _gameDtoBuilder.AddingFieldToO(Field.One).Build());
-        ExpectPlayerTurn(3, _gameDtoBuilder.AddingFieldToX(Field.Five).Build());
-        ExpectPlayerTurn(4, _gameDtoBuilder.AddingFieldToO(Field.Two).Build());
-        ExpectPlayerTurn(5, _gameDtoBuilder.AddingFieldToX(Field.Seven).Build());
-        ExpectPlayerTurn(6, _gameDtoBuilder.AddingFieldToO(Field.Three).WinningPlayerO().Build());
+        ExpectPlayerTurn(1, AddingFieldToX(Field.Four).Build());
+        ExpectPlayerTurn(2, AddingFieldToO(Field.One).Build());
+        ExpectPlayerTurn(3, AddingFieldToX(Field.Five).Build());
+        ExpectPlayerTurn(4, AddingFieldToO(Field.Two).Build());
+        ExpectPlayerTurn(5, AddingFieldToX(Field.Seven).Build());
+        ExpectPlayerTurn(6, AddingFieldToO(Field.Three).WinningPlayerO().Build());
     }
     
     [Test]
@@ -71,16 +71,17 @@ public class GameTests
         _game.Start();
         
         ExpectInitialDisplay();
-        ExpectPlayerTurn(1, _gameDtoBuilder.AddingFieldToX(Field.One).Build());
-        ExpectPlayerTurn(2, _gameDtoBuilder.AddingFieldToO(Field.Five).Build());
-        ExpectPlayerTurn(3, _gameDtoBuilder.AddingFieldToX(Field.Nine).Build());
-        ExpectPlayerTurn(4, _gameDtoBuilder.AddingFieldToO(Field.Two).Build());
-        ExpectPlayerTurn(5, _gameDtoBuilder.AddingFieldToX(Field.Eight).Build());
-        ExpectPlayerTurn(6, _gameDtoBuilder.AddingFieldToO(Field.Seven).Build());
-        ExpectPlayerTurn(7, _gameDtoBuilder.AddingFieldToX(Field.Three).Build());
-        ExpectPlayerTurn(8, _gameDtoBuilder.AddingFieldToO(Field.Six).Build());
-        ExpectPlayerTurn(9, _gameDtoBuilder.AddingFieldToX(Field.Four).WithNoOneWinning().Build());
+        ExpectPlayerTurn(1, AddingFieldToX(Field.One).Build());
+        ExpectPlayerTurn(2, AddingFieldToO(Field.Five).Build());
+        ExpectPlayerTurn(3, AddingFieldToX(Field.Nine).Build());
+        ExpectPlayerTurn(4, AddingFieldToO(Field.Two).Build());
+        ExpectPlayerTurn(5, AddingFieldToX(Field.Eight).Build());
+        ExpectPlayerTurn(6, AddingFieldToO(Field.Seven).Build());
+        ExpectPlayerTurn(7, AddingFieldToX(Field.Three).Build());
+        ExpectPlayerTurn(8, AddingFieldToO(Field.Six).Build());
+        ExpectPlayerTurn(9, AddingFieldToX(Field.Four).WithNoOneWinning().Build());
     }
+    
 
     private void ExpectPlayerTurn(int turnNumber, GameStateDto gameStateDto)
     {
@@ -91,5 +92,15 @@ public class GameTests
     private void ExpectInitialDisplay()
     {
         Assert.That(_playerXInteractionCalls[0], Is.EqualTo(InitialGameStateDto()));
+    }
+    
+    private Builder AddingFieldToO(Field field)
+    {
+        return _gameDtoBuilder.AddingFieldToO(field);
+    }
+
+    private Builder AddingFieldToX(Field field)
+    {
+        return _gameDtoBuilder.AddingFieldToX(field);
     }
 }
