@@ -1,5 +1,3 @@
-using ApprovalUtilities.Utilities;
-
 namespace LegacyTicTacToe.Tests;
 
 using NUnit.Framework;
